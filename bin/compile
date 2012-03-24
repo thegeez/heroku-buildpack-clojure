@@ -68,7 +68,7 @@ fi
 cd $BUILD_DIR
 PATH=.lein/bin:/usr/local/bin:/usr/bin:/bin \
   LEIN_JVM_OPTS="-Xmx500m -Duser.home=$BUILD_DIR" \
-  lein $LEIN_BUILD_TASK 2>&1 | sed -u 's/^/       /'
+    lein $LEIN_BUILD_TASK 2>&1 | sed -u 's/^/       /'
 if [ "${PIPESTATUS[*]}" != "0 0" ]; then
   echo " !     Failed to install dependencies with Leiningen"
   exit 1
@@ -77,14 +77,18 @@ fi
 # Compile cljs
 echo "-----> Compiling development cljs"
 cd $BUILD_DIR
-lein run -m tasks.build-dev-js 2>&1
+PATH=.lein/bin:/usr/local/bin:/usr/bin:/bin \
+  LEIN_JVM_OPTS="-Xmx500m -Duser.home=$BUILD_DIR" \
+  lein run -m tasks.build-dev-js 2>&1
 if [ "${PIPESTATUS[*]}" != "0 0" ]; then
   echo " !     Failed to compile development cljs"
   exit 1
 fi
 echo "-----> Compiling advanced cljs"
 cd $BUILD_DIR
-lein run -m tasks.build-advancev-js 2>&1
+PATH=.lein/bin:/usr/local/bin:/usr/bin:/bin \
+  LEIN_JVM_OPTS="-Xmx500m -Duser.home=$BUILD_DIR" \
+    lein run -m tasks.build-advancev-js 2>&1
 if [ "${PIPESTATUS[*]}" != "0 0" ]; then
   echo " !     Failed to compile advanced cljs"
   exit 1

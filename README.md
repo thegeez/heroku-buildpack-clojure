@@ -1,3 +1,19 @@
+# DEPRECATED:
+
+The added functionality in this buildpack can be achieved with the
+standard Clojure
+[buildpack][https://github.com/heroku/heroku-buildpack-clojure.git]
+from Heroku.
+
+Enable [user_env_compile][https://devcenter.heroku.com/articles/labs-user-env-compile]: 
+
+    heroku labs:enable user_env_compile -a <YOUR_APP_NAME>
+
+Add this config var:  
+
+    heroku config:add LEIN_BUILD_TASK="run -m tasks.build-dev-js, run -m tasks.build-advanced-js"
+
+Original README follows:
 # Heroku buildpack: Clojure
 
 This is a Heroku buildpack for Clojure apps. It uses

@@ -13,6 +13,8 @@ Add this config var:
 
     heroku config:add LEIN_BUILD_TASK="run -m tasks.build-dev-js, run -m tasks.build-advanced-js"
 
+Thanks to a [comment][https://github.com/thegeez/heroku-buildpack-clojure/commit/74126ac8bb2ad108b6f51d9149fa92195b626ff6#commitcomment-1177656] by technomancy.
+
 Original README follows:
 # Heroku buildpack: Clojure
 

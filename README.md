@@ -1,11 +1,9 @@
 # DEPRECATED:
 
 The added functionality in this buildpack can be achieved with the
-standard Clojure
-[buildpack][https://github.com/heroku/heroku-buildpack-clojure.git]
-from Heroku.
+standard Clojure [buildpack][1] from Heroku.
 
-Enable [user_env_compile][https://devcenter.heroku.com/articles/labs-user-env-compile]: 
+Enable [user_env_compile][2]: 
 
     heroku labs:enable user_env_compile -a <YOUR_APP_NAME>
 
@@ -13,7 +11,11 @@ Add this config var:
 
     heroku config:add LEIN_BUILD_TASK="run -m tasks.build-dev-js, run -m tasks.build-advanced-js"
 
-Thanks to a [comment][https://github.com/thegeez/heroku-buildpack-clojure/commit/74126ac8bb2ad108b6f51d9149fa92195b626ff6#commitcomment-1177656] by technomancy.
+Thanks to a [comment][3] by technomancy.
+
+[1]: https://github.com/heroku/heroku-buildpack-clojure.git
+[2]: https://devcenter.heroku.com/articles/labs-user-env-compile
+[3]: https://github.com/thegeez/heroku-buildpack-clojure/commit/74126ac8bb2ad108b6f51d9149fa92195b626ff6#commitcomment-1177656
 
 Original README follows:
 # Heroku buildpack: Clojure
